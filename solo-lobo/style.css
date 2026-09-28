@@ -1,0 +1,424 @@
+
+@charset "UTF-8";
+
+/* =========================
+   VARIÁVEIS
+========================= */
+
+:root {
+    --verde-escuro: #17211e;
+    --verde: #263832;
+    --vermelho: #8c0600;
+    --vermelho-claro: #b51a13;
+
+    --fundo: #eef0ed;
+    --branco: #ffffff;
+    --texto: #202522;
+    --texto-secundario: #5d6661;
+
+    --sombra: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: var(--fundo);
+    color: var(--texto);
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: relative;
+
+    min-height: 420px;
+    padding: 120px 10% 80px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: var(--branco);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(23, 33, 30, 0.95),
+            rgba(38, 56, 50, 0.75)
+        ),
+        url("imagens/lobo.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+header h1 {
+    max-width: 800px;
+
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+}
+
+header p {
+    max-width: 700px;
+
+    color: #dfe5e2;
+
+    font-size: 1.05rem;
+}
+
+
+/* =========================
+   NAVEGAÇÃO
+========================= */
+
+nav {
+    position: absolute;
+
+    top: 25px;
+    right: 5%;
+
+    display: flex;
+    gap: 5px;
+
+    padding: 5px;
+
+    background-color: rgba(0, 0, 0, 0.3);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+
+    backdrop-filter: blur(8px);
+}
+
+nav a {
+    padding: 9px 15px;
+
+    color: white;
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 7px;
+
+    transition: 0.25s;
+}
+
+nav a:hover {
+    background-color: var(--vermelho);
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    width: min(1100px, 90%);
+
+    margin: 60px auto;
+}
+
+
+/* =========================
+   PRIMEIRA SECTION
+========================= */
+
+main > section:first-child {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+
+/* =========================
+   ARTIGOS
+========================= */
+
+article {
+    position: relative;
+
+    padding: 30px;
+
+    background-color: var(--branco);
+
+    border-radius: 15px;
+
+    box-shadow: var(--sombra);
+
+    transition: 0.25s;
+}
+
+article:hover {
+    transform: translateY(-5px);
+}
+
+article::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 25px;
+
+    width: 4px;
+    height: 45px;
+
+    background-color: var(--vermelho);
+
+    border-radius: 0 5px 5px 0;
+}
+
+article h2 {
+    margin-bottom: 15px;
+
+    color: var(--verde-escuro);
+
+    font-size: 1.5rem;
+}
+
+article p {
+    color: var(--texto-secundario);
+}
+
+article p + p {
+    margin-top: 15px;
+}
+
+
+/* =========================
+   CURIOSIDADES
+========================= */
+
+main > section:nth-of-type(2) {
+    margin-top: 60px;
+}
+
+main > section:nth-of-type(2) h2 {
+    margin-bottom: 25px;
+
+    color: var(--verde-escuro);
+
+    font-size: 2rem;
+}
+
+main > section:nth-of-type(2) ul {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+main > section:nth-of-type(2) li {
+    list-style: none;
+
+    padding: 20px;
+
+    background-color: var(--branco);
+
+    border: 1px solid #00000012;
+    border-radius: 12px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+
+    transition: 0.25s;
+}
+
+main > section:nth-of-type(2) li::before {
+    content: "🐺";
+
+    margin-right: 10px;
+}
+
+main > section:nth-of-type(2) li:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--vermelho);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.13);
+}
+
+
+/* =========================
+   ASIDE
+========================= */
+
+aside {
+    margin: 50px 0;
+
+    padding: 30px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--verde),
+            var(--verde-escuro)
+        );
+
+    border-radius: 15px;
+
+    box-shadow: var(--sombra);
+}
+
+aside h3 {
+    margin-bottom: 15px;
+
+    font-size: 1.5rem;
+}
+
+aside p {
+    padding: 12px 0;
+
+    color: #d9dfdc;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+aside p:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================
+   ÚLTIMA SECTION
+========================= */
+
+main > section:last-child {
+    padding: 35px;
+
+    background-color: var(--branco);
+
+    border-radius: 15px;
+
+    box-shadow: var(--sombra);
+}
+
+main > section:last-child h3 {
+    margin-bottom: 10px;
+
+    color: var(--vermelho);
+
+    font-size: 1.4rem;
+}
+
+main > section:last-child h3:not(:first-child) {
+    margin-top: 30px;
+}
+
+
+/* =========================
+   EM
+========================= */
+
+em {
+    color: var(--vermelho);
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 80px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    color: #b8c0bc;
+
+    background-color: var(--verde-escuro);
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 120px 7% 70px;
+    }
+
+    nav {
+        right: 5%;
+        left: 5%;
+
+        justify-content: center;
+    }
+
+    main > section:first-child {
+        grid-template-columns: 1fr;
+    }
+
+    main > section:nth-of-type(2) ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    header h1 {
+        font-size: 2.7rem;
+    }
+
+    header p {
+        font-size: 0.95rem;
+    }
+
+    nav a {
+        padding: 8px 10px;
+
+        font-size: 0.85rem;
+    }
+
+    main {
+        width: 92%;
+
+        margin: 40px auto;
+    }
+
+    article,
+    aside,
+    main > section:last-child {
+        padding: 22px;
+    }
+}
+
